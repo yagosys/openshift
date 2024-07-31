@@ -1,0 +1,216 @@
+&rest.Config{Host:"https://10.96.0.1:443", APIPath:"", ContentConfig:rest.ContentConfig{AcceptContentTypes:"", ContentType:"", GroupVersion:(*schema.GroupVersion)(nil), NegotiatedSerializer:runtime.NegotiatedSerializer(nil)}, Username:"", Password:"", BearerToken:"--- REDACTED ---", BearerTokenFile:"/var/run/secrets/kubernetes.io/serviceaccount/token", Impersonate:rest.ImpersonationConfig{UserName:"", UID:"", Groups:[]string(nil), Extra:map[string][]string(nil)}, AuthProvider:<nil>, AuthConfigPersister:rest.AuthProviderConfigPersister(nil), ExecProvider:<nil>, TLSClientConfig:rest.sanitizedTLSClientConfig{Insecure:false, ServerName:"", CertFile:"", KeyFile:"", CAFile:"/var/run/secrets/kubernetes.io/serviceaccount/ca.crt", CertData:[]uint8(nil), KeyData:[]uint8(nil), CAData:[]uint8(nil), NextProtos:[]string(nil)}, UserAgent:"", DisableCompression:false, Transport:http.RoundTripper(nil), WrapTransport:(transport.WrapperFunc)(nil), QPS:0, Burst:0, RateLimiter:flowcontrol.RateLimiter(nil), WarningHandler:rest.WarningHandler(nil), Timeout:0, Dial:(func(context.Context, string, string) (net.Conn, error))(nil), Proxy:(func(*http.Request) (*url.URL, error))(nil)}
+Creating Kubernetes API client .... 
+Created Kubenetes API client 
+call getvaluefromcm
+Try to get SSH_HOST from namespace default in configmap ssh-config
+got 13.91.60.21
+obtained fwbClient.SSHIP value: 13.91.60.21
+Try to get SSH_PORT from namespace default in configmap ssh-config
+got 2222
+Try to get SSH_USERNAME from namespace default in configmap ssh-config
+got admin
+Try to get SSH_NEW_PASSWORD from namespace default in configmap ssh-config
+got Welcome.123
+13.91.60.21
+creating SSH session to 13.91.60.21 at port :2222 with username admin and password Welcome.123 
+ssh session established with 13.91.60.21 
+Start watch ingress rule change for ingressClass fortiwebingresscontroller
+Create watch list for ingresses in all namespace with all field for ingressClass fortiwebingresscontroller
+Received Ingress : default/gowebingressrule
+Start config fortiweb with ingress rule gowebingressrule
+######################[]########
+Ingress gowebingressrule does not have TLS enabled.
+ingress protcol is service
+Reading ingress annotation for certificate
+####################################
+servicename: web8888  portnumber: 8888
+Commands executed successfully. Output: fweb70577-deployment-67646d7c~ # fweb70577-deployment-67646d7c~ # 
+fweb70577-deployment-67646d7c~ (vserver) # 
+fweb70577-deployment-67646d7c~ (fortiwebservice) # 
+fweb70577-deployment-67646d7c~ (vip-list) # 
+fweb70577-deployment-67646d7c~ (1) # 
+fweb70577-deployment-67646d7c~ (1) # Command fail. CLI parsing error.
+
+fweb70577-deployment-67646d7c~ (1) # 
+fweb70577-deployment-67646d7c~ (vip-list) # 
+fweb70577-deployment-67646d7c~ (fortiwebservice) # 
+fweb70577-deployment-67646d7c~ (vserver) # 
+fweb70577-deployment-67646d7c~ # 
+Host: , Path: / -> Service: goweb, Service Port: 80
+Found NodePort: 0 for service goweb on port 80
+-----------------------------------
+service Name = goweb
+label = goweb
+-----------------------------------
+clusterIP =10.96.147.166 port =80
+Host: , Path: / -> Service: goweb, Service Port: 80
+Found NodePort: 0 for service goweb on port 80
+Commands executed successfully. Output:
+ fweb70577-deployment-67646d7c~ # fweb70577-deployment-67646d7c~ # 
+fweb70577-deployment-67646d7c~ (server-pool) # 
+fweb70577-deployment-67646d7c~ (goweb) # 
+fweb70577-deployment-67646d7c~ (goweb) # 
+fweb70577-deployment-67646d7c~ (goweb) # 
+fweb70577-deployment-67646d7c~ (pserver-list) # 
+fweb70577-deployment-67646d7c~ (1) # 
+fweb70577-deployment-67646d7c~ (1) # 
+fweb70577-deployment-67646d7c~ (1) # 
+fweb70577-deployment-67646d7c~ (pserver-list) # 
+fweb70577-deployment-67646d7c~ (goweb) # 
+fweb70577-deployment-67646d7c~ (server-pool) # 
+fweb70577-deployment-67646d7c~ # fweb70577-deployment-67646d7c~ # 
+-----------------------------------
+http rule name gowebserver
+-----------------------------------
+Commands executed successfully. Output:
+ fweb70577-deployment-67646d7c~ # fweb70577-deployment-67646d7c~ # 
+fweb70577-deployment-67646d7c~ (custom) # 
+fweb70577-deployment-67646d7c~ (web8888) # 
+fweb70577-deployment-67646d7c~ (web8888) # 
+fweb70577-deployment-67646d7c~ (custom) # 
+found match key FORTIWEBSVCPORT and match value 8888
+found match key match-expression and match value v2
+Commands executed successfully. Output:
+ fweb70577-deployment-67646d7c~ # fweb70577-deployment-67646d7c~ # 
+fweb70577-deployment-67646d7c~ (http-content-routing-policy) # 
+fweb70577-deployment-67646d7c~ (gowebserver) # 
+fweb70577-deployment-67646d7c~ (gowebserver) # 
+fweb70577-deployment-67646d7c~ (content-routing-match-list) # 
+fweb70577-deployment-67646d7c~ (1) # 
+fweb70577-deployment-67646d7c~ (1) # 
+fweb70577-deployment-67646d7c~ (1) # 
+fweb70577-deployment-67646d7c~ (1) # 
+fweb70577-deployment-67646d7c~ (1) # fweb70577-deployment-67646d7c~ (1) # 
+fweb70577-deployment-67646d7c~ (content-routing-match-list) # 
+fweb70577-deployment-67646d7c~ (gowebserver) # 
+fweb70577-deployment-67646d7c~ (http-content-routing-policy) # 
+fweb70577-deployment-67646d7c~ # 
+invoke config_server_policy_policy with fortiwebingressrulepolicy, http-content-routing and vservername = fortiwebservice and protocolname =service  and servicename = web8888 and certificatename = , and ingressRule.ContentRoutingNo =1, and httprulename = gowebserver
+Commands executed successfully. Output:
+ fweb70577-deployment-67646d7c~ # fweb70577-deployment-67646d7c~ # 
+fweb70577-deployment-67646d7c~ (policy) # 
+fweb70577-deployment-67646d7c~ (fortiwebingressrulepolicy) # 
+fweb70577-deployment-67646d7c~ (fortiwebingressrulepolicy) # 
+fweb70577-deployment-67646d7c~ (fortiwebingressrulepolicy) # 
+fweb70577-deployment-67646d7c~ (fortiwebingressrulepolicy) # 
+fweb70577-deployment-67646d7c~ (fortiwebingressrulepolicy) # Command fail. CLI parsing error.
+
+fweb70577-deployment-67646d7c~ (fortiwebingressrulepolicy) # 
+fweb70577-deployment-67646d7c~ (fortiwebingressrulepolicy) # 
+fweb70577-deployment-67646d7c~ (fortiwebingressrulepolicy) # 
+fweb70577-deployment-67646d7c~ (http-content-routing-list) # 
+fweb70577-deployment-67646d7c~ (1) # 
+fweb70577-deployment-67646d7c~ (1) # 
+fweb70577-deployment-67646d7c~ (1) # 
+fweb70577-deployment-67646d7c~ (http-content-routing-list) # 
+fweb70577-deployment-67646d7c~ (fortiwebingressrulepolicy) # 
+fweb70577-deployment-67646d7c~ (policy) # 
+fweb70577-deployment-67646d7c~ # fweb70577-deployment-67646d7c~ # 
+Try to get SSH_HOST from namespace default in configmap ssh-config
+got 13.91.60.21
+Obtain hostname 13.91.60.21 from configmap ssh-config
+, resolv to ip...The IP address of 13.91.60.21 is 13.91.60.21
+Get IP 13.91.60.21 from HostName for upgrade ingress loadbalancer ip
+Start updateIngressLoadBalancerIP
+Updated Ingress gowebingressrule in namespace default with load balancer IP 13.91.60.21
+Received Ingress : default/nginxingressrule
+Start config fortiweb with ingress rule nginxingressrule
+######################[]########
+Ingress nginxingressrule does not have TLS enabled.
+ingress protcol is service
+Reading ingress annotation for certificate
+####################################
+servicename: web8888  portnumber: 8888
+Commands executed successfully. Output: fweb70577-deployment-67646d7c~ # fweb70577-deployment-67646d7c~ # 
+fweb70577-deployment-67646d7c~ (vserver) # 
+fweb70577-deployment-67646d7c~ (fortiwebservice) # 
+fweb70577-deployment-67646d7c~ (vip-list) # 
+fweb70577-deployment-67646d7c~ (1) # 
+fweb70577-deployment-67646d7c~ (1) # Command fail. CLI parsing error.
+
+fweb70577-deployment-67646d7c~ (1) # 
+fweb70577-deployment-67646d7c~ (vip-list) # 
+fweb70577-deployment-67646d7c~ (fortiwebservice) # 
+fweb70577-deployment-67646d7c~ (vserver) # 
+fweb70577-deployment-67646d7c~ # 
+Host: , Path: / -> Service: nginx, Service Port: 80
+Found NodePort: 0 for service nginx on port 80
+-----------------------------------
+service Name = nginx
+label = nginx
+-----------------------------------
+clusterIP =10.96.23.193 port =80
+Host: , Path: / -> Service: nginx, Service Port: 80
+Found NodePort: 0 for service nginx on port 80
+Commands executed successfully. Output:
+ fweb70577-deployment-67646d7c~ # fweb70577-deployment-67646d7c~ # 
+fweb70577-deployment-67646d7c~ (server-pool) # 
+fweb70577-deployment-67646d7c~ (nginx) # 
+fweb70577-deployment-67646d7c~ (nginx) # 
+fweb70577-deployment-67646d7c~ (nginx) # 
+fweb70577-deployment-67646d7c~ (pserver-list) # 
+fweb70577-deployment-67646d7c~ (1) # 
+fweb70577-deployment-67646d7c~ (1) # 
+fweb70577-deployment-67646d7c~ (1) # 
+fweb70577-deployment-67646d7c~ (pserver-list) # 
+fweb70577-deployment-67646d7c~ (nginx) # 
+fweb70577-deployment-67646d7c~ (server-pool) # 
+fweb70577-deployment-67646d7c~ # fweb70577-deployment-67646d7c~ # 
+-----------------------------------
+http rule name nginxserver
+-----------------------------------
+Commands executed successfully. Output:
+ fweb70577-deployment-67646d7c~ # fweb70577-deployment-67646d7c~ # 
+fweb70577-deployment-67646d7c~ (custom) # 
+fweb70577-deployment-67646d7c~ (web8888) # 
+fweb70577-deployment-67646d7c~ (web8888) # Command fail. The service used by a policy can not be edited.
+
+fweb70577-deployment-67646d7c~ (custom) # 
+found match key match-expression and match value index.html
+found match key FORTIWEBSVCPORT and match value 8888
+Commands executed successfully. Output:
+ fweb70577-deployment-67646d7c~ # fweb70577-deployment-67646d7c~ # 
+fweb70577-deployment-67646d7c~ (http-content-routing-policy) # 
+fweb70577-deployment-67646d7c~ (nginxserver) # 
+fweb70577-deployment-67646d7c~ (nginxserver) # 
+fweb70577-deployment-67646d7c~ (content-routing-match-list) # 
+fweb70577-deployment-67646d7c~ (1) # 
+fweb70577-deployment-67646d7c~ (1) # 
+fweb70577-deployment-67646d7c~ (1) # Command fail. CLI parsing error.
+
+fweb70577-deployment-67646d7c~ (1) # 
+fweb70577-deployment-67646d7c~ (1) # fweb70577-deployment-67646d7c~ (1) # 
+fweb70577-deployment-67646d7c~ (content-routing-match-list) # 
+fweb70577-deployment-67646d7c~ (nginxserver) # 
+fweb70577-deployment-67646d7c~ (http-content-routing-policy) # 
+fweb70577-deployment-67646d7c~ # 
+invoke config_server_policy_policy with fortiwebingressrulepolicy, http-content-routing and vservername = fortiwebservice and protocolname =service  and servicename = web8888 and certificatename = , and ingressRule.ContentRoutingNo =2, and httprulename = nginxserver
+Commands executed successfully. Output:
+ fweb70577-deployment-67646d7c~ # fweb70577-deployment-67646d7c~ # 
+fweb70577-deployment-67646d7c~ (policy) # 
+fweb70577-deployment-67646d7c~ (fortiwebingressrulepolicy) # 
+fweb70577-deployment-67646d7c~ (fortiwebingressrulepolicy) # 
+fweb70577-deployment-67646d7c~ (fortiwebingressrulepolicy) # 
+fweb70577-deployment-67646d7c~ (fortiwebingressrulepolicy) # 
+fweb70577-deployment-67646d7c~ (fortiwebingressrulepolicy) # Command fail. CLI parsing error.
+
+fweb70577-deployment-67646d7c~ (fortiwebingressrulepolicy) # 
+fweb70577-deployment-67646d7c~ (fortiwebingressrulepolicy) # 
+fweb70577-deployment-67646d7c~ (fortiwebingressrulepolicy) # 
+fweb70577-deployment-67646d7c~ (http-content-routing-list) # 
+fweb70577-deployment-67646d7c~ (2) # 
+fweb70577-deployment-67646d7c~ (2) # 
+fweb70577-deployment-67646d7c~ (2) # 
+fweb70577-deployment-67646d7c~ (http-content-routing-list) # 
+fweb70577-deployment-67646d7c~ (fortiwebingressrulepolicy) # 
+fweb70577-deployment-67646d7c~ (policy) # 
+fweb70577-deployment-67646d7c~ # fweb70577-deployment-67646d7c~ # 
+Try to get SSH_HOST from namespace default in configmap ssh-config
+got 13.91.60.21
+Obtain hostname 13.91.60.21 from configmap ssh-config
+, resolv to ip...The IP address of 13.91.60.21 is 13.91.60.21
+Get IP 13.91.60.21 from HostName for upgrade ingress loadbalancer ip
+Start updateIngressLoadBalancerIP
+Updated Ingress nginxingressrule in namespace default with load balancer IP 13.91.60.21
+Ingress Updated: default/gowebingressrule
+Ingress Updated: default/nginxingressrule
